@@ -15,6 +15,8 @@ INSERT INTO "public"."equipo_categoriaunidad" ("id_categoria", "nombre_categoria
 INSERT INTO "public"."equipo_categoriaunidad" ("id_categoria", "nombre_categoria", "descripcion_categoria", "editable", "status_categoria", "created", "modified", "id_empresa_id", "uso_equipo") VALUES (152, 'Volumen', 'Unidades para medir el espacio ocupado por los objetos que tienen tres dimensiones.', 'f', 't', '2021-03-17 03:05:21.021395+00', '2021-03-17 03:05:21.021395+00', 1, 't');
 INSERT INTO "public"."equipo_categoriaunidad" ("id_categoria", "nombre_categoria", "descripcion_categoria", "editable", "status_categoria", "created", "modified", "id_empresa_id", "uso_equipo") VALUES (256, 'Peso', 'Unidades para medir el peso de los materiales', 't', 't', '2022-01-26 17:37:15.866866+00', '2022-01-26 17:37:15.866866+00', 1, 't');
 INSERT INTO "public"."equipo_categoriaunidad" ("id_categoria", "nombre_categoria", "descripcion_categoria", "editable", "status_categoria", "created", "modified", "id_empresa_id", "uso_equipo") VALUES (271, 'Propiedades Eléctricas', 'Elect', 't', 't', '2022-03-15 04:47:56.171696+00', '2022-03-15 04:47:56.171739+00', 1, 't');
+SELECT MAX(id_categoria) FROM equipo_categoriaunidad;
+SELECT setval('equipo_categoriaunidad_id_categoria', (SELECT MAX(id_categoria) FROM equipo_categoriaunidad), false);
 
 
 /* Unidades */
@@ -64,6 +66,8 @@ INSERT INTO "public"."equipo_unidadequipo" ("id_unidad", "nombre_unidad", "abrev
 INSERT INTO "public"."equipo_unidadequipo" ("id_unidad", "nombre_unidad", "abreviatura_unidad", "tipo_unidad", "equivalencia_unidad", "equivalencia_tiempo_unidad", "editable", "status_unidad", "created", "modified", "categoria_unidad_id", "id_empresa_id", "simbolo") VALUES (14, 'Metro Cúbico', 'm3', 'QT', NULL, NULL, 't', 't', '2024-08-27 06:20:30.679472+00', '2024-08-27 06:20:30.679511+00', 152, 1, NULL);
 INSERT INTO "public"."equipo_unidadequipo" ("id_unidad", "nombre_unidad", "abreviatura_unidad", "tipo_unidad", "equivalencia_unidad", "equivalencia_tiempo_unidad", "editable", "status_unidad", "created", "modified", "categoria_unidad_id", "id_empresa_id", "simbolo") VALUES (15, 'Unidad', 'U', 'QT', NULL, NULL, 't', 't', '2024-09-02 03:49:40.147788+00', '2024-09-02 03:49:40.147829+00', 53, 1, NULL);
 INSERT INTO "public"."equipo_unidadequipo" ("id_unidad", "nombre_unidad", "abreviatura_unidad", "tipo_unidad", "equivalencia_unidad", "equivalencia_tiempo_unidad", "editable", "status_unidad", "created", "modified", "categoria_unidad_id", "id_empresa_id", "simbolo") VALUES (16, 'Rollo', 'Rollo', 'QT', NULL, NULL, 't', 't', '2024-10-03 19:11:50.44042+00', '2024-10-03 19:11:50.440462+00', 53, 1, NULL);
+SELECT MAX(id_unidad) FROM equipo_unidadequipo;
+SELECT setval('public.equipo_unidadequipo_id_unidad_seq', (SELECT MAX(id_unidad) FROM equipo_unidadequipo), false);
 
 /* MARCA */
 INSERT INTO "public"."equipo_marca" ("id_marca", "nombre_marca", "descripcion_marca", "status_marca", "created", "modified", "id_empresa_id") VALUES (49, 'Wayne, Dresser Inc.', 'Despachador múltiple de combustible, USA, cumple normas NOM', 't', '2020-05-21 17:57:42.652866+00', '2020-05-21 18:00:28.246873+00', 1);
@@ -95,6 +99,8 @@ INSERT INTO "public"."equipo_marca" ("id_marca", "nombre_marca", "descripcion_ma
 INSERT INTO "public"."equipo_marca" ("id_marca", "nombre_marca", "descripcion_marca", "status_marca", "created", "modified", "id_empresa_id") VALUES (2, 'Massey Fergunson', 'Marca de equipos agrícolas Massey Fergunson', 't', '2024-08-13 06:26:26.275315+00', '2024-08-13 06:26:26.275396+00', 1);
 INSERT INTO "public"."equipo_marca" ("id_marca", "nombre_marca", "descripcion_marca", "status_marca", "created", "modified", "id_empresa_id") VALUES (3, 'New Holland', 'New Holland', 't', '2024-10-26 17:36:51.702218+00', '2024-10-26 17:36:51.702256+00', 1);
 INSERT INTO "public"."equipo_marca" ("id_marca", "nombre_marca", "descripcion_marca", "status_marca", "created", "modified", "id_empresa_id") VALUES (4, 'Cubota', 'Cubota', 't', '2024-10-26 17:37:11.354647+00', '2024-10-26 17:37:11.354709+00', 1);
+SELECT MAX(id_marca) FROM equipo_marca;
+SELECT setval('equipo_marca_id_marca_seq', (SELECT MAX(id_marca) FROM equipo_marca), false);
 
 
 /* MODELO */
@@ -140,6 +146,8 @@ INSERT INTO "public"."equipo_modelo" ("id_modelo", "nombre_modelo", "descripcion
 INSERT INTO "public"."equipo_modelo" ("id_modelo", "nombre_modelo", "descripcion_modelo", "status_modelo", "created", "modified", "id_empresa_id", "id_marca_id") VALUES (3, 'MF-4700', 'Tractor agrícola Modelo MF-4700, Massey Fergunson', 't', '2024-08-13 06:27:38.090382+00', '2024-08-13 06:27:38.090411+00', 1, 2);
 INSERT INTO "public"."equipo_modelo" ("id_modelo", "nombre_modelo", "descripcion_modelo", "status_modelo", "created", "modified", "id_empresa_id", "id_marca_id") VALUES (4, 'TD85F', 'Modelo TD85F', 't', '2024-10-26 17:38:18.309155+00', '2024-10-26 17:38:18.309192+00', 1, 3);
 INSERT INTO "public"."equipo_modelo" ("id_modelo", "nombre_modelo", "descripcion_modelo", "status_modelo", "created", "modified", "id_empresa_id", "id_marca_id") VALUES (5, 'L3 800', 'Tractor L3 800 capacidad de', 't', '2024-10-26 17:40:24.412766+00', '2024-10-26 17:40:24.412808+00', 1, 4);
+SELECT MAX(id_modelo) FROM equipo_modelo;
+SELECT setval('equipo_modelo_id_modelo_seq', (SELECT MAX(id_modelo) FROM equipo_modelo), false);
 
 
 /* SISTEMAS */
@@ -152,6 +160,8 @@ INSERT INTO "public"."guia_trabajo_sistema" ("id_sistema", "nombre_sistema", "st
 INSERT INTO "public"."guia_trabajo_sistema" ("id_sistema", "nombre_sistema", "status_sistema", "created", "modified", "id_empresa_id") VALUES (59, 'Suspensión', 't', '2023-08-29 20:09:02.836803+00', '2023-08-29 20:09:02.836851+00', 1);
 INSERT INTO "public"."guia_trabajo_sistema" ("id_sistema", "nombre_sistema", "status_sistema", "created", "modified", "id_empresa_id") VALUES (60, 'Frenos', 't', '2023-08-29 20:09:12.248761+00', '2023-08-29 20:09:12.2488+00', 1);
 INSERT INTO "public"."guia_trabajo_sistema" ("id_sistema", "nombre_sistema", "status_sistema", "created", "modified", "id_empresa_id") VALUES (57, 'Eléctrico', 't', '2023-08-02 22:59:47.513196+00', '2024-04-05 04:22:44.771852+00', 1);
+SELECT MAX(id_sistema) FROM guia_trabajo_sistema;
+SELECT setval('guia_trabajo_sistema_id_sistema_seq', (SELECT MAX(id_sistema) FROM guia_trabajo_sistema), false);
 
 
 /* Elementos */
@@ -182,7 +192,8 @@ INSERT INTO "public"."guia_trabajo_elemento" ("id_elemento", "nombre_elemento", 
 INSERT INTO "public"."guia_trabajo_elemento" ("id_elemento", "nombre_elemento", "status_elemento", "created", "modified", "id_empresa_id", "id_sistema_id") VALUES (161, 'Bujías', 't', '2024-04-05 04:25:30.655699+00', '2024-04-05 04:25:32.796172+00', 1, 57);
 INSERT INTO "public"."guia_trabajo_elemento" ("id_elemento", "nombre_elemento", "status_elemento", "created", "modified", "id_empresa_id", "id_sistema_id") VALUES (162, 'Distribuido', 't', '2024-04-05 04:25:46.900595+00', '2024-04-05 04:25:59.042551+00', 1, 57);
 INSERT INTO "public"."guia_trabajo_elemento" ("id_elemento", "nombre_elemento", "status_elemento", "created", "modified", "id_empresa_id", "id_sistema_id") VALUES (163, 'Cables', 't', '2024-04-05 04:26:09.512705+00', '2024-04-05 04:26:09.512731+00', 1, 57);
-
+SELECT MAX(id_elemento) FROM guia_trabajo_elemento;
+SELECT setval('guia_trabajo_elemento_id_elemento_seq', (SELECT MAX(id_elemento) FROM guia_trabajo_elemento), false);
 
 /* Grupos de Equipo */
 INSERT INTO "public"."equipo_grupoequipo" ("id_grupo_equipo", "nombre_grupo_equipo", "descripcion_grupo_equipo", "status_grupo_equipo", "created", "modified", "id_empresa_id") VALUES (27, 'Perforadoras', 'Perforadoras de roca', 't', '2021-02-15 18:42:26.604177+00', '2021-02-15 18:42:26.604177+00', 1);
@@ -224,4 +235,5 @@ INSERT INTO "public"."equipo_grupoequipo" ("id_grupo_equipo", "nombre_grupo_equi
 INSERT INTO "public"."equipo_grupoequipo" ("id_grupo_equipo", "nombre_grupo_equipo", "descripcion_grupo_equipo", "status_grupo_equipo", "created", "modified", "id_empresa_id") VALUES (1, 'Areas Productivas', 'Areas Productivas del Rancho La Tropicana', 't', '2024-08-13 06:56:36.691605+00', '2024-08-13 06:56:36.691634+00', 1);
 INSERT INTO "public"."equipo_grupoequipo" ("id_grupo_equipo", "nombre_grupo_equipo", "descripcion_grupo_equipo", "status_grupo_equipo", "created", "modified", "id_empresa_id") VALUES (2, 'Tractores Agricolas', 'Tractores Agricolas de diferentes, marcas, Miodelos y Capacidades', 't', '2024-10-26 17:34:49.705905+00', '2024-10-26 17:34:49.705933+00', 1);
 INSERT INTO "public"."equipo_grupoequipo" ("id_grupo_equipo", "nombre_grupo_equipo", "descripcion_grupo_equipo", "status_grupo_equipo", "created", "modified", "id_empresa_id") VALUES (3, 'Aspersoras', 'Aspersoras de diferentes Marcas, Modelos y Capacidades', 't', '2024-10-26 17:35:21.888038+00', '2024-10-26 17:35:21.888145+00', 1);
-
+SELECT MAX(id_grupo_equipo) FROM equipo_grupoequipo;
+SELECT setval('equipo_grupoequipo_id_grupo_equipo_seq', (SELECT MAX(id_grupo_equipo) FROM equipo_grupoequipo), false);
